@@ -17,7 +17,7 @@ public class EmailController {
     private final EmailService emailService;
 
     @PostMapping
-    public ResponseEntity<Void> enviaEmail(@RequestBody TarefasDTO dto){
+    public ResponseEntity<Void> enviarEmail(@RequestBody TarefasDTO dto){
         emailService.enviaEmail(dto);
         return ResponseEntity.ok().build();
 

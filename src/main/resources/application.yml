@@ -2,8 +2,8 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: gabriel.grohl2006@gmail.com
-    password: wiay rtno jsko ejdp
+    username:
+    password:
     protocol: smtp
     properties:
       mail:
@@ -15,6 +15,7 @@ spring:
           auth: true
           starttls:
             enable: true
+            required: true
           connectiontimeout: 5000
           timeout: 3000
           writetimeout: 5000
@@ -24,8 +25,8 @@ spring:
 
 envio:
   email:
-    remetente: gabriel.grohl2006@gmail.com
+    remetente:
     nomeRemetente: 'Javanauta'
 
 server:
-  port: 8085
+  port: 8082

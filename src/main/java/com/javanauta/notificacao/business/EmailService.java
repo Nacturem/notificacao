@@ -15,6 +15,7 @@ import org.thymeleaf.context.Context;
 
 
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
@@ -44,13 +45,13 @@ public class EmailService {
 
             Context context = new Context();
             context.setVariable("nomeTarefa", dto.getNomeTarefa());
-            context.setVariable("dataEvento", dto.getDataEvento());
             context.setVariable("descricao", dto.getDescricao());
+            context.setVariable("dataEvento", dto.getDataEvento());
             String template = templateEngine.process("notificacao", context);
             mimeMessageHelper.setText(template,true);
             javaMailSender.send(mensagem);
         } catch (MessagingException | UnsupportedEncodingException e) {
-            throw new EmailException("Erro ao enviar o email", e.getCause());
+            throw new EmailException("Erro ao enviar o email", e);
         }
     }
 }
